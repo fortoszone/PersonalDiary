@@ -1,4 +1,4 @@
-package com.fortoszone.personaldiary.model
+package com.fortoszone.personaldiary.model.local
 
 import com.google.gson.annotations.SerializedName
 
