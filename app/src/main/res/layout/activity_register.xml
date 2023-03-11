@@ -72,7 +72,6 @@
     </LinearLayout>
 
     <androidx.cardview.widget.CardView
-        android:id="@+id/btn_create"
         android:layout_width="match_parent"
         android:layout_height="60dp"
         android:layout_marginBottom="48dp"
@@ -80,6 +79,7 @@
         app:layout_constraintBottom_toBottomOf="parent">
 
         <Button
+            android:id="@+id/btn_create"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:background="@drawable/diary_custom_view"

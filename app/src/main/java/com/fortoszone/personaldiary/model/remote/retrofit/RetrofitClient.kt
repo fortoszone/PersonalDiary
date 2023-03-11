@@ -4,7 +4,7 @@ import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
 object RetrofitClient {
-    private const val BASE_URL = "https://private-anon-5a9c59ad72-halfwineaid.apiary-mock.com/"
+    private const val BASE_URL = "https://private-anon-96d5035311-halfwineaid.apiary-mock.com/"
     private var retrofit: Retrofit? = null
 
     fun getInstance(): Retrofit {
