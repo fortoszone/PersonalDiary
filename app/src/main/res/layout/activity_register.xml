@@ -12,9 +12,7 @@
         android:id="@+id/register_title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="48dp"
-        android:layout_marginBottom="64dp"
-        android:gravity="center_horizontal"
+        android:layout_marginTop="96dp"
         android:text="@string/create_an_account"
         android:textSize="32sp"
         app:layout_constraintTop_toTopOf="parent" />
@@ -22,7 +20,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="108dp"
+        android:layout_marginTop="24dp"
         android:orientation="vertical"
         app:layout_constraintTop_toBottomOf="@id/register_title">
 
@@ -72,7 +70,6 @@
     </LinearLayout>
 
     <androidx.cardview.widget.CardView
-        android:id="@+id/btn_create"
         android:layout_width="match_parent"
         android:layout_height="60dp"
         android:layout_marginBottom="48dp"
@@ -80,6 +77,7 @@
         app:layout_constraintBottom_toBottomOf="parent">
 
         <Button
+            android:id="@+id/btn_create"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:background="@drawable/diary_custom_view"

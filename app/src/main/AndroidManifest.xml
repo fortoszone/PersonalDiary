@@ -13,13 +13,21 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/Theme.PersonalDiary"
+        android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
-            android:name=".AddDiaryActivity"
+            android:name=".ui.addDiary.AddDiaryActivity"
             android:exported="false" />
         <activity
-            android:name=".SplashActivity"
-            android:exported="false" />
+            android:name=".ui.splash.SplashActivity"
+            android:exported="true">
+
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+
+        </activity>
         <activity
             android:name=".ui.archive.ArchiveActivity"
             android:exported="false" />
@@ -34,13 +42,6 @@
             android:exported="false" />
         <activity
             android:name=".ui.home.HomeActivity"
-            android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
+            android:exported="false" />
     </application>
-
 </manifest>

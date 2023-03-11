@@ -1,18 +1,29 @@
 package com.fortoszone.personaldiary.model.remote.retrofit
 
 import com.fortoszone.personaldiary.model.remote.response.DiaryResponse
+import com.fortoszone.personaldiary.model.remote.request.LoginRequest
+import com.fortoszone.personaldiary.model.remote.response.LoginResponse
+import com.fortoszone.personaldiary.model.remote.response.RegisterResponse
 import retrofit2.Call
-import retrofit2.http.GET
-import retrofit2.http.POST
-import retrofit2.http.PUT
-import retrofit2.http.Path
+import retrofit2.http.*
 
 interface DiaryService {
+    @FormUrlEncoded
+    @Headers("content-type: application/json")
     @POST("/auth/register")
-    fun register(): Call<DiaryResponse>
+    fun registerUser(
+        @Field("email") email: String,
+        @Field("username") username: String,
+        @Field("password") password: String,
+        @Field("password_confirmation") passwordConfirm: String,
+
+        ): Call<RegisterResponse>
 
     @POST("/auth/login")
-    fun login(): Call<DiaryResponse>
+    @Headers("content-type: application/json")
+    fun loginUser(
+        @Body loginRequest: LoginRequest,
+    ): Call<LoginResponse>
 
     @GET("/diary")
     fun getDiaryList(): Call<DiaryResponse>
