@@ -1,18 +1,42 @@
 package com.fortoszone.personaldiary.model.remote.retrofit
 
-import retrofit2.Retrofit
-import retrofit2.converter.gson.GsonConverterFactory
+import com.fortoszone.personaldiary.model.remote.response.DiaryResponse
+import retrofit2.Call
+import retrofit2.http.GET
+import retrofit2.http.POST
+import retrofit2.http.PUT
+import retrofit2.http.Path
 
-object DiaryService {
-    private const val BASE_URL = "https://private-anon-5a9c59ad72-halfwineaid.apiary-mock.com/"
-    private var retrofit: Retrofit? = null
+interface DiaryService {
+    @POST("/auth/register")
+    fun register(): Call<DiaryResponse>
 
-    fun getInstance(): Retrofit {
-        if (retrofit == null) {
-            retrofit = Retrofit.Builder().baseUrl(BASE_URL)
-                .addConverterFactory(GsonConverterFactory.create()).build()
-        }
+    @POST("/auth/login")
+    fun login(): Call<DiaryResponse>
 
-        return retrofit!!
-    }
+    @GET("/diary")
+    fun getDiaryList(): Call<DiaryResponse>
+
+    @GET("/diary/{diary_id}")
+    fun getDiaryDetail(
+        @Path("diary_id") diaryId: String
+    ): Call<DiaryResponse>
+
+    @PUT("/diary/{diary_id}")
+    fun updateDiaryDetail(
+        @Path("diary_id") diaryId: String
+    ): Call<DiaryResponse>
+
+    @POST("/diary")
+    fun createDiary(): Call<DiaryResponse>
+
+    @PUT("/diary/{diary_id}/archieve")
+    fun archiveDiary(
+        @Path("diary_id") diaryId: String
+    ): Call<DiaryResponse>
+
+    @PUT("/diary/{diary_id}/unarchieve")
+    fun unarchiveDiary(
+        @Path("diary_id") diaryId: String
+    ): Call<DiaryResponse>
 }

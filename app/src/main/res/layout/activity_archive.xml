@@ -4,6 +4,15 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.archive.ArchiveActivity">
+    tools:context=".ui.archive.ArchiveActivity"
+    android:paddingHorizontal="16dp"
+    android:paddingTop="16dp">
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_archived_diary"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:listitem="@layout/diary_row"
+        app:layout_constraintTop_toTopOf="parent"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

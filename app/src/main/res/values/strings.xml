@@ -1,3 +1,22 @@
 <resources>
     <string name="app_name">PersonalDiary</string>
+    <string name="register_title">Register</string>
+    <string name="register_title_underlined"><u>Register</u></string>
+    <string name="email_address">Email Address</string>
+    <string name="username">Username</string>
+    <string name="password">Password</string>
+    <string name="confirm_password">Confirm Password</string>
+    <string name="create_an_account">Create an account</string>
+    <string name="login">Login</string>
+    <string name="doesn_t_have_an_account_yet">Doesn\'t have an account yet?</string>
+    <string name="archive_title">Archive</string>
+    <string name="diary_title">Lorem Ipsum</string>
+    <string name="diary_created_at">2022-09-21</string>
+    <string name="hello">Hello,</string>
+    <string name="button_to_archive_page">Button to archive page</string>
+    <string name="diary_content_placeholder">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec eu mattis lectus. Aliquam erat volutpat. Fusce justo ligula, dignissim sed iaculis et, congue id urna. Nunc feugiat egestas risus, in interdum magna blandit vel. Pellentesque aliquet, mi quis vestibulum feugiat, odio urna maximus tortor, porttitor bibendum quam nisl a nisl. Aliquam lobortis mi at ante ultrices, nec sodales mi fermentum. Sed eu nisi lobortis tellus maximus volutpat facilisis pharetra elit. Nunc imperdiet at nulla nam.</string>
+    <string name="create">Create</string>
+    <string name="personaldiary_title">PersonalDiary</string>
+    <string name="created_by_owner">Created by Devwanto Dariel Nugroho</string>
+    <string name="powered_by_api">Powered by halfwineaid Apiary API</string>
 </resources>
