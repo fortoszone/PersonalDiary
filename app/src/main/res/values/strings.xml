@@ -19,4 +19,9 @@
     <string name="personaldiary_title">PersonalDiary</string>
     <string name="created_by_owner">Created by Devwanto Dariel Nugroho</string>
     <string name="powered_by_api">Powered by halfwineaid Apiary API</string>
+    <string name="hi">Hi,</string>
+    <string name="what_s_on_your_mind_right_now">What\'s on your mind right now?</string>
+    <string name="save">Save</string>
+    <string name="what_s_up">What\'s up?</string>
+    <string name="add_new_diary">Add New Diary</string>
 </resources>
