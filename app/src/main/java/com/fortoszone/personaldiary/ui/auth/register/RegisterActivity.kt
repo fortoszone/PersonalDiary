@@ -5,7 +5,7 @@ import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.fortoszone.personaldiary.databinding.ActivityRegisterBinding
-import com.fortoszone.personaldiary.model.remote.response.UserResponse
+import com.fortoszone.personaldiary.model.remote.response.RegisterResponse
 import com.fortoszone.personaldiary.model.remote.retrofit.DiaryService
 import com.fortoszone.personaldiary.model.remote.retrofit.RetrofitClient
 import com.fortoszone.personaldiary.ui.auth.login.LoginActivity
@@ -19,6 +19,7 @@ class RegisterActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityRegisterBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        supportActionBar?.hide()
 
         binding.btnCreate.setOnClickListener {
             val email = binding.tilEmail.text.toString().trim()
@@ -56,19 +57,20 @@ class RegisterActivity : AppCompatActivity() {
 
             val apiService = RetrofitClient.getInstance().create(DiaryService::class.java)
             apiService.registerUser(email, username, password, passwordConfirm).enqueue(object :
-                Callback<UserResponse> {
+                Callback<RegisterResponse> {
                 override fun onResponse(
-                    call: Call<UserResponse>,
-                    response: Response<UserResponse>
+                    call: Call<RegisterResponse>,
+                    response: Response<RegisterResponse>
                 ) {
                     if (response.code() == 201) {
-                        Toast.makeText(this@RegisterActivity, "Account Created", Toast.LENGTH_SHORT).show()
+                        Toast.makeText(this@RegisterActivity, "Account Created", Toast.LENGTH_SHORT)
+                            .show()
                         val intent = Intent(this@RegisterActivity, LoginActivity::class.java)
                         startActivity(intent)
                     }
                 }
 
-                override fun onFailure(call: Call<UserResponse>, t: Throwable) {
+                override fun onFailure(call: Call<RegisterResponse>, t: Throwable) {
                     Toast.makeText(this@RegisterActivity, t.message, Toast.LENGTH_LONG).show()
                 }
 
