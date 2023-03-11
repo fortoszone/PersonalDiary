@@ -22,7 +22,7 @@
         android:id="@+id/ll_header"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="108dp"
+        android:layout_marginTop="84dp"
         android:orientation="vertical"
         app:layout_constraintTop_toBottomOf="@id/btn_archive">
 
@@ -42,7 +42,7 @@
     </LinearLayout>
 
     <androidx.cardview.widget.CardView
-        android:id="@+id/btn_add_new_diary"
+        android:id="@+id/cv_add_new_diary"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
@@ -50,6 +50,7 @@
         app:layout_constraintTop_toBottomOf="@id/ll_header">
 
         <Button
+            android:id="@+id/btn_add_new_diary"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:background="@drawable/diary_custom_view"
@@ -62,7 +63,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
-        app:layout_constraintTop_toBottomOf="@id/btn_add_new_diary"
+        app:layout_constraintTop_toBottomOf="@id/cv_add_new_diary"
         tools:listitem="@layout/diary_row" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
