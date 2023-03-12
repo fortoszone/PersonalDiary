@@ -21,7 +21,7 @@ class HomeAdapter(private val diaries: List<Diary>) :
             with(itemView) {
                 binding.llDiary.setOnClickListener {
                     val moveActivity = Intent(itemView.context, DetailActivity::class.java)
-                    //moveActivity.putExtra(DetailActivity.EXTRA_DETAILS, diary)
+                    moveActivity.putExtra(DetailActivity.EXTRA_DETAILS, diary)
                     itemView.context.startActivity(moveActivity)
                 }
             }

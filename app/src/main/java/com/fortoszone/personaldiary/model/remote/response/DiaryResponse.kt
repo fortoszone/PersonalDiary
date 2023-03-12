@@ -1,20 +1,23 @@
 package com.fortoszone.personaldiary.model.remote.response
 
-import com.fortoszone.personaldiary.model.local.Diary
 import com.google.gson.annotations.SerializedName
 
 data class DiaryResponse(
-    // https://private-anon-5a9c59ad72-halfwineaid.apiary-mock.com/diary?search=
-    @SerializedName("data")
-    val diaries: List<Diary>,
+    @SerializedName("id")
+    val id: String = "",
 
-    @SerializedName("page")
-    val page: String = "",
+    @SerializedName("title")
+    val title: String = "",
 
-    @SerializedName("limit")
-    val limit: String = "",
+    @SerializedName("content")
+    val content: String = "",
 
-    @SerializedName("total_data")
-    val totalDiaries: String = ""
+    @SerializedName("is_archieved")
+    val isArchived: Boolean = false,
 
+    @SerializedName("created_at")
+    val createdAt: String = "",
+
+    @SerializedName("updated_at")
+    val updatedAt: String = ""
 )

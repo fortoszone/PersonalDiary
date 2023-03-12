@@ -1,7 +1,8 @@
 package com.fortoszone.personaldiary.model.remote.retrofit
 
-import com.fortoszone.personaldiary.model.remote.response.DiaryResponse
+import com.fortoszone.personaldiary.model.remote.response.DiaryListResponse
 import com.fortoszone.personaldiary.model.remote.request.LoginRequest
+import com.fortoszone.personaldiary.model.remote.response.DiaryResponse
 import com.fortoszone.personaldiary.model.remote.response.LoginResponse
 import com.fortoszone.personaldiary.model.remote.response.RegisterResponse
 import retrofit2.Call
@@ -26,7 +27,7 @@ interface DiaryService {
     ): Call<LoginResponse>
 
     @GET("/diary")
-    fun getDiaryList(): Call<DiaryResponse>
+    fun getDiaryList(): Call<DiaryListResponse>
 
     @GET("/diary/{diary_id}")
     fun getDiaryDetail(
@@ -39,15 +40,15 @@ interface DiaryService {
     ): Call<DiaryResponse>
 
     @POST("/diary")
-    fun createDiary(): Call<DiaryResponse>
+    fun createDiary(): Call<DiaryListResponse>
 
     @PUT("/diary/{diary_id}/archieve")
     fun archiveDiary(
         @Path("diary_id") diaryId: String
-    ): Call<DiaryResponse>
+    ): Call<DiaryListResponse>
 
     @PUT("/diary/{diary_id}/unarchieve")
     fun unarchiveDiary(
         @Path("diary_id") diaryId: String
-    ): Call<DiaryResponse>
+    ): Call<DiaryListResponse>
 }

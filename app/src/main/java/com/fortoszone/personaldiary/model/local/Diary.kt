@@ -1,7 +1,10 @@
 package com.fortoszone.personaldiary.model.local
 
+import android.os.Parcelable
 import com.google.gson.annotations.SerializedName
+import kotlinx.parcelize.Parcelize
 
+@Parcelize
 data class Diary(
     @SerializedName("id")
     val id: String = "",
@@ -20,4 +23,4 @@ data class Diary(
 
     @SerializedName("updated_at")
     val updatedAt: String = ""
-)
+) : Parcelable
