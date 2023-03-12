@@ -4,6 +4,8 @@ import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.paging.PagingDataAdapter
+import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.fortoszone.personaldiary.R
 import com.fortoszone.personaldiary.databinding.DiaryRowBinding
@@ -11,7 +13,7 @@ import com.fortoszone.personaldiary.model.local.Diary
 import com.fortoszone.personaldiary.ui.detail.DetailActivity
 
 class HomeAdapter(private val diaries: List<Diary>) :
-    RecyclerView.Adapter<HomeAdapter.ViewHolder>() {
+    PagingDataAdapter<Diary, HomeAdapter.ViewHolder>(PHOTO_COMPARATOR) {
     class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         private val binding = DiaryRowBinding.bind(view)
         fun bind(diary: Diary) {
@@ -39,4 +41,14 @@ class HomeAdapter(private val diaries: List<Diary>) :
     }
 
     override fun getItemCount() = diaries.size
+
+    companion object {
+        private val PHOTO_COMPARATOR = object : DiffUtil.ItemCallback<Diary>() {
+            override fun areItemsTheSame(oldItem: Diary, newItem: Diary) =
+                oldItem.id == newItem.id
+
+            override fun areContentsTheSame(oldItem: Diary, newItem: Diary) =
+                oldItem == newItem
+        }
+    }
 }

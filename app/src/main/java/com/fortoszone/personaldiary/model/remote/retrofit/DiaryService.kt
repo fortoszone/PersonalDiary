@@ -1,7 +1,7 @@
 package com.fortoszone.personaldiary.model.remote.retrofit
 
-import com.fortoszone.personaldiary.model.remote.response.DiaryListResponse
 import com.fortoszone.personaldiary.model.remote.request.LoginRequest
+import com.fortoszone.personaldiary.model.remote.response.DiaryListResponse
 import com.fortoszone.personaldiary.model.remote.response.DiaryResponse
 import com.fortoszone.personaldiary.model.remote.response.LoginResponse
 import com.fortoszone.personaldiary.model.remote.response.RegisterResponse
@@ -28,6 +28,9 @@ interface DiaryService {
 
     @GET("/diary")
     fun getDiaryList(): Call<DiaryListResponse>
+
+    @GET("/diary")
+    fun getArchivedDiaryList(): Call<DiaryListResponse>
 
     @GET("/diary/{diary_id}")
     fun getDiaryDetail(

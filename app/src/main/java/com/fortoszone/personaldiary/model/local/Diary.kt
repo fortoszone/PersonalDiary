@@ -7,20 +7,20 @@ import kotlinx.parcelize.Parcelize
 @Parcelize
 data class Diary(
     @SerializedName("id")
-    val id: String = "",
+    var id: String = "",
 
     @SerializedName("title")
-    val title: String = "",
+    var title: String = "",
 
     @SerializedName("content")
-    val content: String = "",
+    var content: String = "",
 
     @SerializedName("is_archieved")
-    val isArchived: Boolean = false,
+    var isArchived: Boolean = false,
 
     @SerializedName("created_at")
-    val createdAt: String = "",
+    var createdAt: String = "",
 
     @SerializedName("updated_at")
-    val updatedAt: String = ""
+    var updatedAt: String = ""
 ) : Parcelable
