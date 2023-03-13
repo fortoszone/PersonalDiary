@@ -14,7 +14,7 @@ import retrofit2.Response
 class ArchiveViewModel: ViewModel() {
     fun loadDiaries(context: Context, callback: (List<Diary>) -> Unit) {
         val apiService = RetrofitClient.getInstance().create(DiaryService::class.java)
-        apiService.getDiaryList()
+        apiService.getArchivedDiaryList()
             .enqueue(object : Callback<DiaryListResponse> {
                 override fun onResponse(
                     call: Call<DiaryListResponse>,

@@ -19,6 +19,7 @@ import com.fortoszone.personaldiary.adapter.HomeAdapter
 import com.fortoszone.personaldiary.databinding.ActivityHomeBinding
 import com.fortoszone.personaldiary.model.local.Diary
 import com.fortoszone.personaldiary.model.local.DiaryData
+import com.fortoszone.personaldiary.model.local.User
 import com.fortoszone.personaldiary.ui.addDiary.DiaryEditorActivity
 import com.fortoszone.personaldiary.ui.archive.ArchiveActivity
 import com.loopj.android.http.AsyncHttpClient
@@ -47,6 +48,9 @@ class HomeActivity : AppCompatActivity() {
         rvDiaries = binding.rvDiaries
         rvDiaries.setHasFixedSize(true)
         loadRecyclerViewList()
+
+        val user = User()
+        binding.tvUsername.text = user.username
 
         binding.btnAddNewDiary.setOnClickListener {
             val intent = Intent(this@HomeActivity, DiaryEditorActivity::class.java)
