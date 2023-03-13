@@ -46,16 +46,25 @@ interface DiaryService {
         @Path("diary_id") diaryId: String
     ): Call<DiaryResponse>
 
+    @FormUrlEncoded
     @PUT("/diary/{diary_id}")
-    fun updateDiaryDetail(
-        @Path("diary_id") diaryId: String
+    fun updateDiary(
+        @Path("diary_id") diaryId: String,
+        @Field("title") title: String,
+        @Field("content") content: String
     ): Call<DiaryResponse>
 
+    @FormUrlEncoded
     @POST("/diary")
+    @Headers(
+        "content-type: application/json",
+        "authorization: bearer youraccesstokengoeshere",
+        "accept: application/json"
+    )
     fun createDiary(
         @Field("title") title: String,
         @Field("content") content: String
-    ): Call<DiaryListResponse>
+    ): Call<DiaryResponse>
 
     @PUT("/diary/{diary_id}/archieve")
     @Headers(

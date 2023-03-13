@@ -1,14 +1,11 @@
 package com.fortoszone.personaldiary.ui.home
 
 import android.content.Intent
-import android.graphics.Color
-import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
 import android.widget.Toast
-import androidx.appcompat.app.ActionBar
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.SearchView
 import androidx.lifecycle.MutableLiveData
@@ -20,8 +17,8 @@ import com.fortoszone.personaldiary.databinding.ActivityHomeBinding
 import com.fortoszone.personaldiary.model.local.Diary
 import com.fortoszone.personaldiary.model.local.DiaryData
 import com.fortoszone.personaldiary.model.local.User
-import com.fortoszone.personaldiary.ui.addDiary.DiaryEditorActivity
 import com.fortoszone.personaldiary.ui.archive.ArchiveActivity
+import com.fortoszone.personaldiary.ui.diary.add.AddDiaryActivity
 import com.loopj.android.http.AsyncHttpClient
 import com.loopj.android.http.AsyncHttpResponseHandler
 import cz.msebera.android.httpclient.Header
@@ -53,11 +50,11 @@ class HomeActivity : AppCompatActivity() {
         binding.tvUsername.text = user.username
 
         binding.btnAddNewDiary.setOnClickListener {
-            val intent = Intent(this@HomeActivity, DiaryEditorActivity::class.java)
+            val intent = Intent(this@HomeActivity, AddDiaryActivity::class.java)
             startActivity(intent)
         }
 
-        supportActionBar!!.setDisplayShowTitleEnabled(false);
+        supportActionBar!!.setDisplayShowTitleEnabled(false)
     }
 
     private fun loadRecyclerViewList() {
