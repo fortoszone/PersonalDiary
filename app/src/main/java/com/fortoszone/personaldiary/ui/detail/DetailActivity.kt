@@ -1,9 +1,10 @@
 package com.fortoszone.personaldiary.ui.detail
 
 import android.os.Build
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.ContextCompat
 import com.fortoszone.personaldiary.R
 import com.fortoszone.personaldiary.databinding.ActivityDetailBinding
 import com.fortoszone.personaldiary.model.local.Diary
@@ -28,8 +29,33 @@ class DetailActivity : AppCompatActivity() {
             binding.tvTitle.text = diary.title
             binding.tvDiaryContent.text = diary.content
             binding.tvCreatedAt.text = diary.createdAt
+
+            if (diary.isArchived == false) {
+                binding.fabArchive.setImageDrawable(
+                    ContextCompat.getDrawable(
+                        this@DetailActivity, R.drawable.baseline_unarchive_24
+                    )
+                )
+            } else {
+                binding.fabArchive.setImageDrawable(
+                    ContextCompat.getDrawable(
+                        this@DetailActivity, R.drawable.baseline_archive_24
+                    )
+                )
+            }
+
         } else {
             Toast.makeText(this, "Data is not retrieved yet", Toast.LENGTH_SHORT).show()
+        }
+
+        binding.fabArchive.setOnClickListener {
+            if (!diary!!.isArchived) {
+                detailViewModel.addToArchive(this, diary.id)
+                diary.isArchived
+            } else {
+                detailViewModel.removeFromArchive(this, diary.id)
+                !diary.isArchived
+            }
         }
     }
 
