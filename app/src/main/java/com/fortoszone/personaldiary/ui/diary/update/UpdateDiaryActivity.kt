@@ -3,15 +3,15 @@ package com.fortoszone.personaldiary.ui.diary.update
 import android.os.Build
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import com.fortoszone.personaldiary.databinding.ActivityEditDiaryBinding
+import com.fortoszone.personaldiary.databinding.ActivityDiaryUpdateBinding
 import com.fortoszone.personaldiary.model.local.Diary
 
 class UpdateDiaryActivity : AppCompatActivity() {
-    private lateinit var binding: ActivityEditDiaryBinding
+    private lateinit var binding: ActivityDiaryUpdateBinding
     private lateinit var viewModel: UpdateDiaryViewModel
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivityEditDiaryBinding.inflate(layoutInflater)
+        binding = ActivityDiaryUpdateBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
         val diary = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {

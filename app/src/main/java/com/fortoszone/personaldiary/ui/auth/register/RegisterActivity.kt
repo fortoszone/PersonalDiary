@@ -2,6 +2,7 @@ package com.fortoszone.personaldiary.ui.auth.register
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Patterns
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.fortoszone.personaldiary.databinding.ActivityRegisterBinding
@@ -30,6 +31,11 @@ class RegisterActivity : AppCompatActivity() {
 
             if (email.isEmpty()) {
                 binding.tilEmail.error = "Email required"
+                binding.tilEmail.requestFocus()
+            }
+
+            if (!(email.isNotEmpty() && Patterns.EMAIL_ADDRESS.matcher(email).matches())) {
+                binding.tilEmail.error = "Email is not valid"
                 binding.tilEmail.requestFocus()
                 return@setOnClickListener
             }
@@ -85,7 +91,6 @@ class RegisterActivity : AppCompatActivity() {
                 override fun onFailure(call: Call<RegisterResponse>, t: Throwable) {
                     Toast.makeText(this@RegisterActivity, t.message, Toast.LENGTH_LONG).show()
                 }
-
             })
         }
     }

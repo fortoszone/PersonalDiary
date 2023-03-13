@@ -38,5 +38,6 @@
     <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
     <string name="update_diary">Update Diary</string>
     <string name="create_diary">Create Diary</string>
+    <string name="alphanumeric">abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890</string>
 
 </resources>

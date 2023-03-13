@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="@color/app_bg"
     android:padding="16dp"
-    tools:context=".ui.diary.AddDiaryActivity">
+    tools:context=".ui.diary.add.AddDiaryActivity">
 
     <TextView
         android:id="@+id/tv_header_ask"
@@ -24,12 +24,13 @@
         android:layout_marginTop="18dp"
         android:autofillHints="diaryContent"
         android:background="@drawable/custom_input"
+        android:digits="@string/alphanumeric"
         android:gravity="top|start"
         android:hint="@string/title"
         android:inputType="text"
+        android:padding="16dp"
         android:textSize="18sp"
-        app:layout_constraintTop_toBottomOf="@id/tv_header_ask"
-        android:padding="16dp"/>
+        app:layout_constraintTop_toBottomOf="@id/tv_header_ask" />
 
     <EditText
         android:id="@+id/et_content"
@@ -38,10 +39,12 @@
         android:layout_marginTop="18dp"
         android:autofillHints="diaryContent"
         android:background="@drawable/custom_input"
+        android:digits="@string/alphanumeric"
         android:gravity="top|start"
         android:hint="@string/what_s_up"
         android:inputType="textMultiLine"
         android:lines="5"
+        android:maxLength="500"
         android:maxLines="5"
         android:padding="16dp"
         android:scrollbars="vertical"

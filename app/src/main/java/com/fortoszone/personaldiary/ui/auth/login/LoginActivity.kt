@@ -2,6 +2,7 @@ package com.fortoszone.personaldiary.ui.auth.login
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Patterns
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.fortoszone.personaldiary.databinding.ActivityLoginBinding
@@ -34,8 +35,14 @@ class LoginActivity : AppCompatActivity() {
             request.email = binding.tilEmail.text.toString().trim()
             request.password = binding.tilPassword.text.toString().trim()
 
-            if (request.email?.isEmpty() == true) {
+            if (request.email!!.isEmpty()) {
                 binding.tilEmail.error = "Email required"
+                binding.tilEmail.requestFocus()
+                return@setOnClickListener
+            }
+
+            if (!(request.email!!.isNotEmpty() && Patterns.EMAIL_ADDRESS.matcher(request.email!!).matches())) {
+                binding.tilEmail.error = "Email is not valid"
                 binding.tilEmail.requestFocus()
                 return@setOnClickListener
             }
@@ -49,6 +56,8 @@ class LoginActivity : AppCompatActivity() {
             val intent = Intent(this@LoginActivity, HomeActivity::class.java)
             startActivity(intent)
 
+//            login function
+//
 //            val apiService = RetrofitClient.getInstance().create(DiaryService::class.java)
 //            apiService.loginUser(request).enqueue(object :
 //                Callback<LoginResponse> {
