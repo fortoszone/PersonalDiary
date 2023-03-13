@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.fortoszone.personaldiary.databinding.ActivityRegisterBinding
+import com.fortoszone.personaldiary.model.local.User
 import com.fortoszone.personaldiary.model.remote.response.RegisterResponse
 import com.fortoszone.personaldiary.model.remote.retrofit.DiaryService
 import com.fortoszone.personaldiary.model.remote.retrofit.RetrofitClient
@@ -67,6 +68,17 @@ class RegisterActivity : AppCompatActivity() {
                             .show()
                         val intent = Intent(this@RegisterActivity, LoginActivity::class.java)
                         startActivity(intent)
+                    } else if (response.code() == 422) {
+                        Toast.makeText(
+                            this@RegisterActivity, response.message(),
+                            Toast.LENGTH_SHORT
+                        ).show()
+                    } else {
+                        Toast.makeText(
+                            this@RegisterActivity,
+                            response.message().toString(),
+                            Toast.LENGTH_SHORT
+                        ).show()
                     }
                 }
 

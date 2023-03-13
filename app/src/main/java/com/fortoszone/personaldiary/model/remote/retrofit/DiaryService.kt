@@ -10,15 +10,14 @@ import retrofit2.http.*
 
 interface DiaryService {
     @FormUrlEncoded
-    @Headers("content-type: application/json")
+    @Headers("content-type: application/json", "Accept: */*")
     @POST("/auth/register")
     fun registerUser(
         @Field("email") email: String,
         @Field("username") username: String,
         @Field("password") password: String,
         @Field("password_confirmation") passwordConfirm: String,
-
-        ): Call<RegisterResponse>
+    ): Call<RegisterResponse>
 
     @POST("/auth/login")
     @Headers("content-type: application/json")
@@ -27,9 +26,19 @@ interface DiaryService {
     ): Call<LoginResponse>
 
     @GET("/diary")
+    @Headers(
+        "content-type: application/json",
+        "authorization: bearer youraccesstokengoeshere",
+        "accept: application/json"
+    )
     fun getDiaryList(): Call<DiaryListResponse>
 
     @GET("/diary")
+    @Headers(
+        "content-type: application/json",
+        "authorization: bearer youraccesstokengoeshere",
+        "accept: application/json"
+    )
     fun getArchivedDiaryList(): Call<DiaryListResponse>
 
     @GET("/diary/{diary_id}")
@@ -43,15 +52,28 @@ interface DiaryService {
     ): Call<DiaryResponse>
 
     @POST("/diary")
-    fun createDiary(): Call<DiaryListResponse>
+    fun createDiary(
+        @Field("title") title: String,
+        @Field("content") content: String
+    ): Call<DiaryListResponse>
 
     @PUT("/diary/{diary_id}/archieve")
+    @Headers(
+        "content-type: application/json",
+        "authorization: bearer youraccesstokengoeshere",
+        "accept: application/json"
+    )
     fun archiveDiary(
-        @Path("diary_id") diaryId: String
-    ): Call<DiaryListResponse>
+        @Path("diary_id") diaryId: String,
+    ): Call<DiaryResponse>
 
     @PUT("/diary/{diary_id}/unarchieve")
+    @Headers(
+        "content-type: application/json",
+        "authorization: bearer youraccesstokengoeshere",
+        "accept: application/json"
+    )
     fun unarchiveDiary(
-        @Path("diary_id") diaryId: String
-    ): Call<DiaryListResponse>
+        @Path("diary_id") diaryId: String,
+    ): Call<DiaryResponse>
 }
