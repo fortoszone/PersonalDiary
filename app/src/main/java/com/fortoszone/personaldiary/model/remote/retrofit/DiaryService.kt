@@ -10,15 +10,14 @@ import retrofit2.http.*
 
 interface DiaryService {
     @FormUrlEncoded
-    @Headers("content-type: application/json")
+    @Headers("content-type: application/json", "Accept: */*")
     @POST("/auth/register")
     fun registerUser(
         @Field("email") email: String,
         @Field("username") username: String,
         @Field("password") password: String,
         @Field("password_confirmation") passwordConfirm: String,
-
-        ): Call<RegisterResponse>
+    ): Call<RegisterResponse>
 
     @POST("/auth/login")
     @Headers("content-type: application/json")
@@ -43,15 +42,26 @@ interface DiaryService {
     ): Call<DiaryResponse>
 
     @POST("/diary")
-    fun createDiary(): Call<DiaryListResponse>
+    fun createDiary(
+        @Field("title") title: String,
+        @Field("content") content: String
+    ): Call<DiaryListResponse>
 
     @PUT("/diary/{diary_id}/archieve")
     fun archiveDiary(
-        @Path("diary_id") diaryId: String
+        @Path("diary_id") diaryId: String,
+        @Field("is_archieved") isArchived: Boolean
     ): Call<DiaryListResponse>
 
+    @FormUrlEncoded
     @PUT("/diary/{diary_id}/unarchieve")
     fun unarchiveDiary(
-        @Path("diary_id") diaryId: String
-    ): Call<DiaryListResponse>
+        @Path("diary_id") id: String,
+        @Field("id") fieldId: String,
+        @Field("title") title: String?,
+        @Field("content") content: String?,
+        @Field("is_archieved") isArchived: Boolean,
+        @Field("created_at") createdAt: String?,
+        @Field("updated_at") updatedAt: String?
+    ): Call<DiaryResponse>
 }

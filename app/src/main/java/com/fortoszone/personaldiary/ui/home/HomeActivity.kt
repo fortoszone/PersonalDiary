@@ -6,7 +6,6 @@ import android.view.Menu
 import android.view.MenuItem
 import android.view.View
 import android.widget.Toast
-import androidx.activity.OnBackPressedCallback
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.SearchView
 import androidx.lifecycle.MutableLiveData
@@ -17,7 +16,7 @@ import com.fortoszone.personaldiary.adapter.HomeAdapter
 import com.fortoszone.personaldiary.databinding.ActivityHomeBinding
 import com.fortoszone.personaldiary.model.local.Diary
 import com.fortoszone.personaldiary.model.local.DiaryData
-import com.fortoszone.personaldiary.ui.addDiary.AddDiaryActivity
+import com.fortoszone.personaldiary.ui.addDiary.DiaryEditorActivity
 import com.fortoszone.personaldiary.ui.archive.ArchiveActivity
 import com.loopj.android.http.AsyncHttpClient
 import com.loopj.android.http.AsyncHttpResponseHandler
@@ -46,7 +45,7 @@ class HomeActivity : AppCompatActivity() {
         loadRecyclerViewList()
 
         binding.btnAddNewDiary.setOnClickListener {
-            val intent = Intent(this@HomeActivity, AddDiaryActivity::class.java)
+            val intent = Intent(this@HomeActivity, DiaryEditorActivity::class.java)
             startActivity(intent)
         }
 

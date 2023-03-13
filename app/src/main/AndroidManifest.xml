@@ -16,7 +16,7 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
-            android:name=".ui.addDiary.AddDiaryActivity"
+            android:name=".ui.addDiary.DiaryEditorActivity"
             android:exported="false" />
         <activity
             android:name=".ui.splash.SplashActivity"
