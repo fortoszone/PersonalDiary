@@ -4,8 +4,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/app_bg"
     android:paddingHorizontal="16dp"
     android:paddingTop="16dp"
+    android:windowLightStatusBar="true"
     tools:context=".ui.home.HomeActivity">
 
     <LinearLayout
@@ -73,8 +75,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
+        android:visibility="gone"
         app:layout_constraintTop_toTopOf="parent"
-        tools:listitem="@layout/diary_row"
-        android:visibility="gone"/>
+        tools:listitem="@layout/diary_row" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -6,7 +6,8 @@
     android:layout_height="match_parent"
     android:paddingHorizontal="16dp"
     android:paddingTop="16dp"
-    tools:context=".ui.archive.ArchiveActivity">
+    tools:context=".ui.archive.ArchiveActivity"
+    android:background="@color/app_bg">
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rv_archived_diary"

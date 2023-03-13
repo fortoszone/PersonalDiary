@@ -4,14 +4,15 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/app_bg"
     android:padding="16dp"
     tools:context=".ui.addDiary.DiaryEditorActivity">
 
     <LinearLayout
-        android:layout_marginTop="48dp"
         android:id="@+id/ll_header"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="48dp"
         android:gravity="center_horizontal"
         android:orientation="vertical"
         app:layout_constraintTop_toTopOf="parent">
@@ -50,27 +51,27 @@
         android:id="@+id/et_content"
         android:layout_width="match_parent"
         android:layout_height="60dp"
-        android:paddingHorizontal="16dp"
-        android:background="@drawable/custom_input"
-        android:inputType="text"
-        app:layout_constraintTop_toBottomOf="@id/ll_header"
         android:layout_marginTop="24dp"
+        android:autofillHints="diaryContent"
+        android:background="@drawable/custom_input"
         android:hint="@string/what_s_up"
+        android:inputType="text"
+        android:paddingHorizontal="16dp"
         android:textSize="18sp"
-        android:autofillHints="diaryContent" />
+        app:layout_constraintTop_toBottomOf="@id/ll_header" />
 
     <androidx.cardview.widget.CardView
         android:id="@+id/btn_login"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="48dp"
         app:cardCornerRadius="16dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        android:layout_marginBottom="48dp">
+        app:layout_constraintBottom_toBottomOf="parent">
 
         <Button
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:text="@string/save"
-            android:background="@drawable/diary_custom_view"/>
+            android:background="@drawable/diary_custom_view"
+            android:text="@string/save" />
     </androidx.cardview.widget.CardView>
 </androidx.constraintlayout.widget.ConstraintLayout>
