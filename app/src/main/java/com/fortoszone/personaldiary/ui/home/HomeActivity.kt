@@ -46,9 +46,6 @@ class HomeActivity : AppCompatActivity() {
         rvDiaries.setHasFixedSize(true)
         loadRecyclerViewList()
 
-        val user = User()
-        binding.tvUsername.text = user.username
-
         binding.btnAddNewDiary.setOnClickListener {
             val intent = Intent(this@HomeActivity, AddDiaryActivity::class.java)
             startActivity(intent)
@@ -86,7 +83,6 @@ class HomeActivity : AppCompatActivity() {
                     adapter.notifyDataSetChanged()
                     getDiaryData(query)
                     binding.rvDiaries.visibility = View.INVISIBLE
-                    binding.llHeader.visibility = View.INVISIBLE
                     binding.cvAddNewDiary.visibility = View.INVISIBLE
                     true
 
@@ -112,7 +108,6 @@ class HomeActivity : AppCompatActivity() {
         }
 
         binding.rvDiaries.visibility = View.VISIBLE
-        binding.llHeader.visibility = View.VISIBLE
         binding.cvAddNewDiary.visibility = View.VISIBLE
         return super.onCreateOptionsMenu(menu)
 
@@ -186,14 +181,12 @@ class HomeActivity : AppCompatActivity() {
         super.onRestart()
         diaries.clear()
         binding.rvDiaries.visibility = View.VISIBLE
-        binding.llHeader.visibility = View.VISIBLE
         binding.cvAddNewDiary.visibility = View.VISIBLE
     }
 
     override fun onResume() {
         super.onResume()
         binding.rvDiaries.visibility = View.VISIBLE
-        binding.llHeader.visibility = View.VISIBLE
         binding.cvAddNewDiary.visibility = View.VISIBLE
     }
 }

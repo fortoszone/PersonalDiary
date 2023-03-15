@@ -56,38 +56,38 @@ class LoginActivity : AppCompatActivity() {
             val intent = Intent(this@LoginActivity, HomeActivity::class.java)
             startActivity(intent)
 
-//            login function
-//
-//            val apiService = RetrofitClient.getInstance().create(DiaryService::class.java)
-//            apiService.loginUser(request).enqueue(object :
-//                Callback<LoginResponse> {
-//                override fun onResponse(
-//                    call: Call<LoginResponse>,
-//                    response: Response<LoginResponse>
-//                ) {
-//                    Toast.makeText(
-//                        this@LoginActivity,
-//                        response.code().toString(),
-//                        Toast.LENGTH_SHORT
-//                    ).show()
-//
-//                    if (response.code() == 200) {
-//                        Toast.makeText(
-//                            this@LoginActivity,
-//                            "Login Succeed, username: ${response.body()?.user}",
-//                            Toast.LENGTH_SHORT
-//                        )
-//                            .show()
-//
-//                        val intent = Intent(this@LoginActivity, HomeActivity::class.java)
-//                        startActivity(intent)
-//                    }
-//                }
-//
-//                override fun onFailure(call: Call<LoginResponse>, t: Throwable) {
-//                    Toast.makeText(this@LoginActivity, t.message, Toast.LENGTH_LONG).show()
-//                }
-//            })
+            /** Login function from API is not working due JSON response is not valid
+
+           val apiService = RetrofitClient.getInstance().create(DiaryService::class.java)
+            apiService.loginUser(request).enqueue(object :
+                Callback<LoginResponse> {
+                override fun onResponse(
+                    call: Call<LoginResponse>,
+                    response: Response<LoginResponse>
+                ) {
+                    Toast.makeText(
+                        this@LoginActivity,
+                        response.code().toString(),
+                        Toast.LENGTH_SHORT
+                    ).show()
+
+                    if (response.code() == 200) {
+                        Toast.makeText(
+                            this@LoginActivity,
+                            "Login Succeed, username: ${response.body()?.user}",
+                            Toast.LENGTH_SHORT
+                        )
+                            .show()
+
+                        val intent = Intent(this@LoginActivity, HomeActivity::class.java)
+                        startActivity(intent)
+                    }
+                }
+
+                override fun onFailure(call: Call<LoginResponse>, t: Throwable) {
+                    Toast.makeText(this@LoginActivity, t.message, Toast.LENGTH_LONG).show()
+                }
+            }) **/
         }
     }
 }

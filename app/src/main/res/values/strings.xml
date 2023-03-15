@@ -39,5 +39,6 @@
     <string name="update_diary">Update Diary</string>
     <string name="create_diary">Create Diary</string>
     <string name="alphanumeric">abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890</string>
+    <string name="hello_there">Hello there!</string>
 
 </resources>
